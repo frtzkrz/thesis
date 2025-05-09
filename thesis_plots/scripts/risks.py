@@ -21,6 +21,10 @@ USZ_COLORS = {
     #"gray": '#c5d5db',
 }
 
+SCEN_DICT = {
+    'N0': 'N0',
+    'II': 'II involved',
+}
 
 if __name__ == "__main__":
     plt.style.use(Path(".mplstyle"))
@@ -49,7 +53,7 @@ if __name__ == "__main__":
                     dataname=f'III/{scen}/{stage}',
                     kwargs={
                         "color": color,
-                        "label": rf"{stage}, {scen}: {100.*np.mean(dataset):.1f} $\pm$ {100.*np.std(dataset):.1f}%",
+                        "label": rf"{SCEN_DICT[scen]}, {stage}: {100.*np.mean(dataset):.1f} $\pm$ {100.*np.std(dataset):.1f}%",
                     }
                 ))
             draw(axes[scen], contents=plots, xlim=(0., 40.))
